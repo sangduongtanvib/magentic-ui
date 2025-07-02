@@ -64,8 +64,8 @@ const ContentHeader = ({
             )}
           </div>
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Magentic-UI Logo" className="h-10 w-10" />
-            <div className="text-primary text-2xl font-bold">Magentic-UI</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/LOGO-VIB-Blue.png" alt="VIB Logo" className="h-10 w-auto" />
+            <div className="text-primary text-2xl font-bold">Powered by VIB DCT Research</div>
           </div>
         </div>
 

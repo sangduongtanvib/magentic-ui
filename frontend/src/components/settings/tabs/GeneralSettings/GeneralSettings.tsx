@@ -18,7 +18,8 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
 }) => {
   return (
     <Flex vertical gap="small">
-      {/* Dark Mode Toggle */}
+      {/* Dark Mode Toggle - Hidden for VIB DCT Research branding */}
+      {/*
       <Flex align="center" justify="space-between">
         <span>
           {darkMode === "dark" ? "Dark Mode" : "Light Mode"}
@@ -35,6 +36,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
       </Flex>
 
       <Divider style={{ margin: "0px" }} />
+      */}
 
       {/* Basic Settings */}
       <Flex vertical gap="small">
@@ -68,7 +70,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <Flex align="center" justify="space-between" wrap gap="large">
             <Flex align="center" justify="start" gap="small" wrap>
               Allow Replans
-              <Tooltip title="When enabled, Magentic-UI will automatically replan if the current plan is not working or you change the original request">
+              <Tooltip title="When enabled, VIB DCT Research will automatically replan if the current plan is not working or you change the original request">
                 <InfoCircleOutlined className="text-secondary hover:text-primary cursor-help" />
               </Tooltip>
             </Flex>
@@ -101,7 +103,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <Flex align="center" justify="space-between" wrap gap="small">
             <Flex align="center" gap="small">
               Retrieve Relevant Plans
-              <Tooltip title="Controls how Magentic-UI retrieves and uses relevant plans from previous sessions">
+              <Tooltip title="Controls how VIB DCT Research retrieves and uses relevant plans from previous sessions">
                 <InfoCircleOutlined className="text-secondary hover:text-primary cursor-help" />
               </Tooltip>
             </Flex>

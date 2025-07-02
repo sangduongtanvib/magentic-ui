@@ -320,7 +320,8 @@ action_guard_client: *client
                 label: "General",
                 children: (
                   <div className="space-y-6 px-4">
-                    {/* Dark Mode Toggle */}
+                    {/* Dark Mode Toggle - Hidden for VIB DCT Research branding */}
+                    {/*
                     <div className="flex items-center justify-between">
                       <span className="text-primary">
                         {darkMode === "dark" ? "Dark Mode" : "Light Mode"}
@@ -340,6 +341,7 @@ action_guard_client: *client
                     </div>
 
                     <Divider />
+                    */}
 
                     {/* Basic Settings */}
                     <div className="space-y-4">
@@ -376,7 +378,7 @@ action_guard_client: *client
                         <div className="flex items-center justify-between">
                           <span className="flex items-center gap-2">
                             Allowed Websites List
-                            <Tooltip title="When enabled, Magentic-UI will only be able to visit websites you add to the list below.s">
+                            <Tooltip title="When enabled, VIB DCT Research will only be able to visit websites you add to the list below.s">
                               <InfoCircleOutlined className="text-secondary hover:text-primary cursor-help" />
                             </Tooltip>
                           </span>
@@ -453,7 +455,7 @@ action_guard_client: *client
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-2">
                         Allow Replans
-                        <Tooltip title="When enabled, Magentic-UI will automatically replan if the current plan is not working or you change the original request">
+                        <Tooltip title="When enabled, VIB DCT Research will automatically replan if the current plan is not working or you change the original request">
                           <InfoCircleOutlined className="text-secondary hover:text-primary cursor-help" />
                         </Tooltip>
                       </span>
@@ -470,7 +472,7 @@ action_guard_client: *client
                     {/*<div className="flex items-center justify-between">
                        <span className="flex items-center gap-2">
                         Use Bing Search for Planning
-                        <Tooltip title="When enabled, Magentic-UI will use Bing Search when coming up with a plan. Note this adds 10 seconds to the planning time.">
+                        <Tooltip title="When enabled, VIB DCT Research will use Bing Search when coming up with a plan. Note this adds 10 seconds to the planning time.">
                           <InfoCircleOutlined className="text-secondary hover:text-primary cursor-help" />
                         </Tooltip>
                       </span> 
@@ -487,7 +489,7 @@ action_guard_client: *client
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-2">
                         Retrieve Relevant Plans
-                        <Tooltip title="Controls how Magentic-UI retrieves and uses relevant plans from previous sessions">
+                        <Tooltip title="Controls how VIB DCT Research retrieves and uses relevant plans from previous sessions">
                           <InfoCircleOutlined className="text-secondary hover:text-primary cursor-help" />
                         </Tooltip>
                       </span>
@@ -606,13 +608,18 @@ action_guard_client: *client
                           Advanced Configuration (YAML)
                         </div>
                         <MonacoEditor
-                          value={config.model_configs}
+                          value={JSON.stringify(config.model_client_configs, null, 2)}
                           onChange={(value) => {
-                            handleUpdateConfig({
-                              model_configs: value,
-                            });
+                            try {
+                              const parsed = JSON.parse(value || "{}");
+                              handleUpdateConfig({
+                                model_client_configs: parsed,
+                              });
+                            } catch (e) {
+                              // Invalid JSON, ignore for now
+                            }
                           }}
-                          language="yaml"
+                          language="json"
                           height="300px"
                           options={{
                             fontFamily: "monospace",

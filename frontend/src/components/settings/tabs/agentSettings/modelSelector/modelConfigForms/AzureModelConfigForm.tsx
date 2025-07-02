@@ -6,9 +6,9 @@ export const DEFAULT_AZURE: AzureModelConfig = {
   provider: "AzureOpenAIChatCompletionClient",
   config: {
     model: "gpt-4o",
-    azure_endpoint: "",
-    azure_deployment: "",
-    api_version: "2024-10-21",
+    azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com",
+    azure_deployment: "gpt-4o",
+    api_version: "2024-02-15-preview",
     max_retries: 10,
   }
 };
