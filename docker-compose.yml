@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  magentic-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+    volumes:
+      # Mount Docker socket to allow container to manage Docker
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mount for persistent data
+      - magentic_data:/app/data
+    privileged: true  # Required for Docker-in-Docker
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  magentic_data:
+
+networks:
+  default:
+    driver: bridge

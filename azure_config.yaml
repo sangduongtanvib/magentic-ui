@@ -1,0 +1,87 @@
+######################################
+# Azure OpenAI Configuration         #
+######################################
+model_config: &client
+  provider: AzureOpenAIChatCompletionClient
+  config:
+    model: gpt-4o
+    azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com"
+    azure_deployment: "gpt-4o"
+    api_version: "2024-02-15-preview"
+    api_key: "9FNrC8BdOJqArMJRfoC3lk6tpjkQZ3dLDfccEGR4wLnvJTf1mIO6JQQJ99BCACHYHv6XJ3w3AAAAACOGyxtr"
+    max_retries: 10
+
+##########################
+# Clients for each agent #
+##########################
+orchestrator_client: *client
+coder_client: *client
+web_surfer_client: *client
+file_surfer_client: *client
+action_guard_client: *client
+user_proxy_client: *client
+model_client: *client
+
+##########################
+# Model Client Configs    #
+##########################
+model_client_configs:
+  orchestrator:
+    provider: AzureOpenAIChatCompletionClient
+    config:
+      model: gpt-4o
+      azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com"
+      azure_deployment: "gpt-4o"
+      api_version: "2024-02-15-preview"
+      api_key: "9FNrC8BdOJqArMJRfoC3lk6tpjkQZ3dLDfccEGR4wLnvJTf1mIO6JQQJ99BCACHYHv6XJ3w3AAAAACOGyxtr"
+      max_retries: 10
+  
+  web_surfer:
+    provider: AzureOpenAIChatCompletionClient
+    config:
+      model: gpt-4o
+      azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com"
+      azure_deployment: "gpt-4o"
+      api_version: "2024-02-15-preview"
+      api_key: "9FNrC8BdOJqArMJRfoC3lk6tpjkQZ3dLDfccEGR4wLnvJTf1mIO6JQQJ99BCACHYHv6XJ3w3AAAAACOGyxtr"
+      max_retries: 10
+  
+  coder:
+    provider: AzureOpenAIChatCompletionClient
+    config:
+      model: gpt-4o
+      azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com"
+      azure_deployment: "gpt-4o"
+      api_version: "2024-02-15-preview"
+      api_key: "9FNrC8BdOJqArMJRfoC3lk6tpjkQZ3dLDfccEGR4wLnvJTf1mIO6JQQJ99BCACHYHv6XJ3w3AAAAACOGyxtr"
+      max_retries: 10
+  
+  file_surfer:
+    provider: AzureOpenAIChatCompletionClient
+    config:
+      model: gpt-4o
+      azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com"
+      azure_deployment: "gpt-4o"
+      api_version: "2024-02-15-preview"
+      api_key: "9FNrC8BdOJqArMJRfoC3lk6tpjkQZ3dLDfccEGR4wLnvJTf1mIO6JQQJ99BCACHYHv6XJ3w3AAAAACOGyxtr"
+      max_retries: 10
+  
+  action_guard:
+    provider: AzureOpenAIChatCompletionClient
+    config:
+      model: gpt-4o
+      azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com"
+      azure_deployment: "gpt-4o"
+      api_version: "2024-02-15-preview"
+      api_key: "9FNrC8BdOJqArMJRfoC3lk6tpjkQZ3dLDfccEGR4wLnvJTf1mIO6JQQJ99BCACHYHv6XJ3w3AAAAACOGyxtr"
+      max_retries: 10
+
+  user_proxy:
+    provider: AzureOpenAIChatCompletionClient
+    config:
+      model: gpt-4o
+      azure_endpoint: "https://dctassistresou5125686331.cognitiveservices.azure.com"
+      azure_deployment: "gpt-4o"
+      api_version: "2024-02-15-preview"
+      api_key: "9FNrC8BdOJqArMJRfoC3lk6tpjkQZ3dLDfccEGR4wLnvJTf1mIO6JQQJ99BCACHYHv6XJ3w3AAAAACOGyxtr"
+      max_retries: 10
